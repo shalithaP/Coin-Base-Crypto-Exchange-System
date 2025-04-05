@@ -1,0 +1,18 @@
+{
+  "name": "trade-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^4.21.2",
+    "fs": "^0.0.1-security",
+    "fs-extra": "^11.3.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

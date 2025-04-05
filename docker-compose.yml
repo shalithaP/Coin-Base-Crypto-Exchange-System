@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  user-service:
+    build: ./user-service
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=mongodb+srv://shalithaP:psrvlo@cluster0.qg2em.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+    volumes:
+      - ./user-service:/app
+    working_dir: /app
+    command: node server.js
+
+  trade-service:
+    build: ./trade-service
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./trade-service:/app
+    working_dir: /app
+    command: node server.js
+
+  portfolio-service:
+    build: ./portfolio-service
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./portfolio-service:/app
+    working_dir: /app
+    command: node server.js
