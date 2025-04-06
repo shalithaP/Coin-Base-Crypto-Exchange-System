@@ -41,12 +41,12 @@ app.get('/users', async (req, res) => {
   }
 });
 
-// ✅ Only start the server if this file is run directly
+//  Only start the server if this file is run directly
 if (require.main === module) {
   app.listen(PORT, () => {
     console.log(`User service running on port ${PORT}`);
   });
 }
 
-// ✅ Export the app for testing
+//  Export the app for testing
 module.exports = app;

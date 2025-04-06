@@ -1,2 +1,5 @@
 node_modules/
 coverage/
+user-service/node_modules/
+portfolio-service/node_modules/
+trade-service/node_modules/
