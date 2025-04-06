@@ -18,10 +18,12 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Install dependencies
+    - name: Install dependencies for user-service
+      working-directory: ./user-service
       run: npm install
 
-    - name: Run tests
+    - name: Run tests for user-service
+      working-directory: ./user-service
       run: npm test
 
     - name: Set up SSH
