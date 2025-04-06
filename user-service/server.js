@@ -8,13 +8,10 @@ const PORT = 3000;
 // Middleware
 app.use(bodyParser.json());
 
-// Hardcoded MongoDB Atlas URI (replace with yours!)
-mongoose.connect('mongodb+srv://shalithaP:psrvlog@cluster0.qg2em.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log('Connected to MongoDB Atlas'))
-.catch(err => console.error('MongoDB connection error:', err));
+// MongoDB Atlas URI
+mongoose.connect('mongodb+srv://shalithaP:psrvlog@cluster0.qg2em.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+  .then(() => console.log('Connected to MongoDB Atlas'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
 // Define a simple User model
 const User = mongoose.model('User', {
@@ -44,6 +41,12 @@ app.get('/users', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`User service running on port ${PORT}`);
-});
+// ✅ Only start the server if this file is run directly
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`User service running on port ${PORT}`);
+  });
+}
+
+// ✅ Export the app for testing
+module.exports = app;
