@@ -31,7 +31,7 @@ app.post('/users', async (req, res) => {
   }
 });
 
-// GET /users - Get all users
+// GET /users - Get all users now
 app.get('/users', async (req, res) => {
   try {
     const users = await User.find();
